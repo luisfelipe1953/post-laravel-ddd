@@ -31,7 +31,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->routes(function () {
             Route::middleware('web')
                 ->group(
-                    base_path('src/Modules/Auth/Infrastructure/Http/Route.php')
+                    base_path('src/Modules/Auth/Infrastructure/Http/router.php')
                 );
         });
     }

@@ -196,7 +196,7 @@ return [
         
         Src\Common\Providers\RouteServiceProvider::class,
 
-        App\Providers\PostServiceProvider::class,
+        Src\Common\Providers\Auth\AuthServiceProvider::class,
         App\Providers\CategoryServiceProvider::class,
         App\Providers\TagServiceProvider::class,
 
