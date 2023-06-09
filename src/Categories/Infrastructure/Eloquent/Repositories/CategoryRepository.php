@@ -37,7 +37,7 @@ class CategoryRepository implements CategoryRepositoryContract
     {
         if (!$pluck) {
             return $this->model->all();
-        } else {
+         } else {
             return $this->model->pluck($column, $key);
         }
     }
