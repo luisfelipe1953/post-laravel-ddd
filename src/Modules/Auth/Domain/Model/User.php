@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Src\Auth\Register\Domain\Model;
+namespace Src\Modules\Auth\Domain\Model;
 
 use Src\Common\Domain\AggregateRoot;
-use Src\Auth\Register\Domain\Model\ValueObjects\Name;
-use Src\Auth\Register\Domain\Model\ValueObjects\Email;
-
+use Src\Modules\Auth\Domain\Model\ValueObjects\Name;
+use Src\Modules\Auth\Domain\Model\ValueObjects\Email;
+use Src\Modules\Auth\Domain\Model\ValueObjects\Password;
 
 class User extends AggregateRoot
 {
@@ -15,7 +15,9 @@ class User extends AggregateRoot
         public readonly ?int $id,
         public readonly Name $name,
         public readonly Email $email,
-    ) {}
+        public readonly Password $password,
+    ) {
+    }
 
     public function toArray(): array
     {
@@ -23,6 +25,7 @@ class User extends AggregateRoot
             'id' => $this->id,
             'name' => $this->name,
             'email' => $this->email,
+            'password' => $this->password,
         ];
     }
 }

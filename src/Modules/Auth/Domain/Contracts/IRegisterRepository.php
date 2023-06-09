@@ -2,7 +2,7 @@
 
 namespace Src\Modules\Auth\Domain\Contracts;
 
-use Src\Modules\Auth\Infrastructure\Http\Request\RegisterRequest;
+use Src\Modules\Auth\Domain\Model\User;
 
 interface IRegisterRepository
 {
@@ -12,5 +12,5 @@ interface IRegisterRepository
      * @param array $data
      * @return void
      */
-    public function registerAUser(array $data): void;
+    public function registerAUser(User $user): void;
 }

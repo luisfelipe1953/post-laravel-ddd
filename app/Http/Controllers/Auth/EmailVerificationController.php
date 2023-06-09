@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 

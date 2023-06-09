@@ -7,7 +7,7 @@ use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Controllers\Auth\Concerns\NewUser;
 use App\Http\Controllers\Auth\Contracts\IRegister;

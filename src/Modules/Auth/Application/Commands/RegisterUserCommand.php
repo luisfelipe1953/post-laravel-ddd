@@ -3,6 +3,7 @@
 namespace Src\Modules\Auth\Application\Commands;
 
 use Src\Modules\Auth\Domain\Contracts\IRegisterRepository;
+use Src\Modules\Auth\Domain\Model\User;
 
 class RegisterUserCommand
 {
@@ -19,8 +20,8 @@ class RegisterUserCommand
      * @param array $data
      * @return void
      */
-    public function registerAndNotify(array $data): void
+    public function registerAndNotify(User $user): void
     {
-        $this->repository->registerAUser($data);
+        $this->repository->registerAUser($user);
     }
 }

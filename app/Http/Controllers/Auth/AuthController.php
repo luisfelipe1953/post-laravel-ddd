@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\Auth\AuthRequest;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use App\Http\Controllers\Auth\Contracts\IAuth;
 use App\Http\Controllers\Auth\Concerns\Authenticator;
 use Illuminate\View\View;

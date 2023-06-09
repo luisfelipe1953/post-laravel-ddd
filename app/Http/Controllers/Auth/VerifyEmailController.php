@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use App\Http\Controllers\Auth\Concerns\VerifyEmail;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 

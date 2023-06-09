@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Src\Auth\Register\Domain\Model\ValueObjects;
+namespace Src\Modules\Auth\Domain\Model\ValueObjects;
 
 use Src\Common\Domain\ValueObject;
 use Src\Common\Domain\Exceptions\RequiredException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Src\Auth\Register\Domain\Exceptions;
+namespace Src\Modules\Auth\Domain\Exeptions;
 
 final class PasswordTooShortException extends \DomainException
 {

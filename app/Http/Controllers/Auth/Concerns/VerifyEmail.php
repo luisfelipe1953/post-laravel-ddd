@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth\Concerns;
 
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Verified;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 trait VerifyEmail

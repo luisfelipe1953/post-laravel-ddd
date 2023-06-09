@@ -6,7 +6,7 @@ use Illuminate\View\View;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use App\Providers\RouteServiceProvider;
+use Src\Common\Providers\RouteServiceProvider;
 use App\Http\Requests\User\UserSettingsRequest;
 use App\Http\Controllers\User\Concerns\UserAdapter;
 use App\Http\Controllers\User\Contracts\IUserSettings;

@@ -2,10 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Src\Auth\Register\Domain\Model\ValueObjects;
+namespace Src\Modules\Auth\Domain\Model\ValueObjects;
+
 
 use Src\Common\Domain\ValueObject;
-use Src\Auth\Register\Domain\Exceptions\PasswordTooShortException;
+use Src\Modules\Auth\Domain\Exeptions\PasswordTooShortException;
 
 
 final class Password extends ValueObject

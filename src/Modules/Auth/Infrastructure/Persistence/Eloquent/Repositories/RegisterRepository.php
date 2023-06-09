@@ -5,8 +5,9 @@ namespace Src\Modules\Auth\Infrastructure\Persistence\Eloquent\Repositories;
 use Src\Common\BaseRepository;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Auth\Events\Registered;
+use Src\Modules\Auth\Domain\Model\User;
+use Src\Modules\Auth\Application\Mapper\UserMapper;
 use Src\Modules\Auth\Domain\Contracts\IRegisterRepository;
-use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\User;
 
 class RegisterRepository extends BaseRepository implements IRegisterRepository
 {
@@ -16,14 +17,14 @@ class RegisterRepository extends BaseRepository implements IRegisterRepository
      * @param array $data
      * @return void
      */
-    public function registerAUser(array $data): void
+    public function registerAUser(User $user): void
     {
         try {
-            $user = User::create([
-                'name' => $this->capitalized($data['name']),
-                'email' => $this->lower($data['email']),
-                'password' => $this->stringHash($data['password']),
-            ]);
+            $userEloquent = UserMapper::toEloquent($user);
+            
+            $userEloquent->save();
+
+            $user = UserMapper::fromEloquent($userEloquent);
 
             $this->eventRegisteredUser($user);
 
