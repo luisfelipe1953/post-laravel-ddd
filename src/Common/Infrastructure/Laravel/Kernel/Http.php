@@ -3,10 +3,6 @@
 namespace Src\Common\Infrastructure\Laravel\Kernel;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use Illuminate\Routing\Middleware\SubstituteBindings;
-use Src\Common\Infrastructure\Laravel\Middleware\JwtMiddleware;
-
-//use Bugsnag\BugsnagLaravel\OomBootstrapper;
 
 class Http extends HttpKernel
 {
@@ -18,12 +14,12 @@ class Http extends HttpKernel
      * @var array<int, class-string|string>
      */
     protected $middleware = [
-        // \Src\Common\Infrastructure\Laravel\Middleware\TrustHosts::class,
-        \Src\Common\Infrastructure\Laravel\Middleware\TrustProxies::class,
+        // \App\Http\Middleware\TrustHosts::class,
+        \App\Http\Middleware\TrustProxies::class,
         \Illuminate\Http\Middleware\HandleCors::class,
-        \Src\Common\Infrastructure\Laravel\Middleware\PreventRequestsDuringMaintenance::class,
+        \App\Http\Middleware\PreventRequestsDuringMaintenance::class,
         \Illuminate\Foundation\Http\Middleware\ValidatePostSize::class,
-        \Src\Common\Infrastructure\Laravel\Middleware\TrimStrings::class,
+        \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
 
@@ -34,24 +30,18 @@ class Http extends HttpKernel
      */
     protected $middlewareGroups = [
         'web' => [
-            \Src\Common\Infrastructure\Laravel\Middleware\EncryptCookies::class,
+            \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \Src\Common\Infrastructure\Laravel\Middleware\VerifyCsrfToken::class,
-            \Illuminate\Routing\Middleware\SubstituteBindings::class
-        ],
-
-        'api' => [
-            \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
-            'throttle:api',
+            \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
 
-        'internal_api' => [
-            'jwt.verify:internal_api',
-            'throttle:internal_api',
-            SubstituteBindings::class,
+        'api' => [
+            // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
+            'throttle:api',
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
 
@@ -62,16 +52,15 @@ class Http extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
-    protected $middlewareAliases = [
-        'jwt.verify' => JwtMiddleware::class,
-        'auth' => \Src\Common\Infrastructure\Laravel\Middleware\Authenticate::class,
+    protected $routeMiddleware = [
+        'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        'guest' => \Src\Common\Infrastructure\Laravel\Middleware\RedirectIfAuthenticated::class,
+        'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'password.confirm' => \Illuminate\Auth\Middleware\RequirePassword::class,
-        'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
+        'signed' => \App\Http\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
     ];

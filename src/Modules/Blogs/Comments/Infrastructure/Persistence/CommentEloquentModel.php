@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Comments\Infrastructure\Eloquent;
+namespace Src\Modules\Blogs\Comments\Infrastructure\Persistence;
 
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\CommentModelFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
-class CommentModel extends Model
+class CommentEloquentModel extends Model
 {
     use HasFactory;
 

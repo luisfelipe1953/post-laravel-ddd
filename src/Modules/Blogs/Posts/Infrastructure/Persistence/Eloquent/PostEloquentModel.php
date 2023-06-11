@@ -4,15 +4,15 @@ namespace Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use Database\Factories\PostModelFactory;
-use Src\Images\Infrastructure\Eloquent\ImageModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Src\Comments\Infrastructure\Eloquent\CommentModel;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
+use Src\Modules\Blogs\Images\Infrastructure\Persistence\ImageEloquentModel;
+use Src\Modules\Blogs\Comments\Infrastructure\Persistence\CommentEloquentModel;
 use Src\Modules\Blogs\Tags\Infrastructure\Persistence\Eloquent\TagEloquentModel;
 use Src\Modules\Blogs\Categories\Infrastructure\Percistence\Eloquent\CategoryEloquentModel;
 
@@ -61,7 +61,7 @@ class PostEloquentModel extends Model
      */
     public function image(): MorphOne
     {
-        return $this->morphOne(ImageModel::class, 'imageable');
+        return $this->morphOne(ImageEloquentModel::class, 'imageable');
     }
 
     /**
@@ -71,7 +71,7 @@ class PostEloquentModel extends Model
      */
     public function comments(): MorphMany
     {
-        return $this->morphMany(CommentModel::class, 'commentable');
+        return $this->morphMany(CommentEloquentModel::class, 'commentable');
     }
 
     /**

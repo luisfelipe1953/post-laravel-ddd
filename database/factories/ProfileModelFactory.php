@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 use Src\Profiles\Infrastructure\Eloquent\ProfileModel;
 
 /**
@@ -29,7 +29,7 @@ class ProfileModelFactory extends Factory
             'title' => $this->faker->unique()->word(),
             'biography' => $this->faker->unique()->sentence(),
             'website' => $this->faker->url(),
-            'user_id' => User::all()->random()->id
+            'user_id' => UserEloquentModel::all()->random()->id
         ];
     }
 }

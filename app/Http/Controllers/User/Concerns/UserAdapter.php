@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\User\Concerns;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\User\UserInfoRequest;
 use App\Http\Requests\User\UserSettingsRequest;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
 trait UserAdapter
 {
@@ -108,11 +108,11 @@ trait UserAdapter
     /**
      * Valida las contraseñas ingresadas
      *
-     * @param User $user
+     * @param UserEloquentModel $user
      * @param UserSettingsRequest $request
      * @return boolean
      */
-    public function validatePasswords(User $user, UserSettingsRequest $request): bool
+    public function validatePasswords(UserEloquentModel $user, UserSettingsRequest $request): bool
     {
         if (
             !empty($request->password_current) &&
@@ -133,10 +133,10 @@ trait UserAdapter
     /**
      * Obtiene y envía al Usuario autenticado
      *
-     * @return User
+     * @return UserEloquentModel
      */
-    public function getUser(): User
+    public function getUser(): UserEloquentModel
     {
-        return User::find(Auth::user()->id);
+        return UserEloquentModel::find(Auth::user()->id);
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Src\Images\Infrastructure\Eloquent\ImageModel;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
 class UserSeeder extends Seeder
 {
@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
+        UserEloquentModel::create([
             'name' => 'Administrador Publico',
             'email' => 'admin@admin.com',
             'password' => Hash::make('admin')

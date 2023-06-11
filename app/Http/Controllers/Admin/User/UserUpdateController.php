@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Admin\User;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Redirector;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
 class UserUpdateController extends Controller
 {
@@ -15,10 +15,10 @@ class UserUpdateController extends Controller
      * Redirecciona a la ruta designada.
      *
      * @param Request $request
-     * @param User $user
+     * @param UserEloquentModel $user
      * @return Redirector|RedirectResponse
      */
-    public function update(Request $request, User $user): Redirector|RedirectResponse
+    public function update(Request $request, UserEloquentModel $user): Redirector|RedirectResponse
     {
         $user->roles()->sync($request->roles);
 

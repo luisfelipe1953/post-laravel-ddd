@@ -8,6 +8,7 @@ use Src\Videos\Infrastructure\Eloquent\VideoModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Src\Modules\Blogs\Videos\Infrastructure\Persistence\VideoEloquentModel;
 use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 
 class TagEloquentModel extends Model
@@ -45,7 +46,7 @@ class TagEloquentModel extends Model
      */
     public function videos(): MorphToMany
     {
-        return $this->morphedByMany(VideoModel::class, 'taggable');
+        return $this->morphedByMany(VideoEloquentModel::class, 'taggable');
     }
 
     /**

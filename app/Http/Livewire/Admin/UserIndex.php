@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Admin;
 
-use App\Models\User;
 use Livewire\Component;
 use Illuminate\View\View;
 use Livewire\WithPagination;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
 class UserIndex extends Component
 {
@@ -37,7 +37,7 @@ class UserIndex extends Component
      */
     public function render(): View
     {
-        $users = User::where('name', 'LIKE', '%' . $this->search . '%')
+        $users = UserEloquentModel::where('name', 'LIKE', '%' . $this->search . '%')
             ->orWhere('email', 'LIKE', '%' . $this->search . '%')
             ->paginate(10);
 

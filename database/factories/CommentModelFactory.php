@@ -2,10 +2,10 @@
 
 namespace Database\Factories;
 
-use App\Models\User;
 use Src\Videos\Infrastructure\Eloquent\VideoModel;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Src\Comments\Infrastructure\Eloquent\CommentModel;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 
 /**
@@ -31,7 +31,7 @@ class CommentModelFactory extends Factory
             'comment' => $this->faker->unique()->sentence(),
             'commentable_id' => 1,
             'commentable_type' => $this->faker->randomElement([PostEloquentModel::class, VideoModel::class]),
-            'user_id' => User::all()->random()->id
+            'user_id' => UserEloquentModel::all()->random()->id
         ];
     }
 }

@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\User;
 
-use App\Models\User;
 use Illuminate\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\User\UserInfoRequest;
 use App\Http\Controllers\User\Contracts\IUserInfo;
 use App\Http\Controllers\User\Concerns\UserAdapter;
+use Src\Modules\Auth\Infrastructure\Persistence\Eloquent\UserEloquentModel;
 
 class UserInfoController extends Controller implements IUserInfo
 {
@@ -17,10 +17,10 @@ class UserInfoController extends Controller implements IUserInfo
     /**
      * Retorna la vista y parámetros
      *
-     * @param User $user
+     * @param UserEloquentModel $user
      * @return View
      */
-    public function profile(User $user): View
+    public function profile(UserEloquentModel $user): View
     {
         return view('user.profile', compact('user'));
     }
