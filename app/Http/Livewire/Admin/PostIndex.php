@@ -2,10 +2,10 @@
 
 namespace App\Http\Livewire\Admin;
 
-use Illuminate\View\View;
 use Livewire\Component;
+use Illuminate\View\View;
 use Livewire\WithPagination;
-use Src\Posts\Infrastructure\Eloquent\PostModel;
+use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 
 class PostIndex extends Component
 {
@@ -37,7 +37,7 @@ class PostIndex extends Component
      */
     public function render(): View
     {
-        $posts = PostModel::where('user_id', auth()->user()->id)
+        $posts = PostEloquentModel::where('user_id', auth()->user()->id)
             ->where('title', 'LIKE', '%' . $this->search . '%')
             ->latest('id')
             ->paginate(10);

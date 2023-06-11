@@ -195,10 +195,13 @@ return [
         App\Providers\EventServiceProvider::class,
         
         Src\Common\Providers\RouteServiceProvider::class,
+        Src\Common\Providers\TagServiceProvider::class,
+        Src\Common\Providers\CategoryServiceProvider::class,
+        Src\Common\Providers\PostServiceProvider::class,
 
         Src\Common\Providers\Auth\AuthServiceProvider::class,
-        App\Providers\CategoryServiceProvider::class,
-        App\Providers\TagServiceProvider::class,
+        // App\Providers\CategoryServiceProvider::class,
+        // App\Providers\TagServiceProvider::class,
 
     ],
 

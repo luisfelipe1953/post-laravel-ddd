@@ -3,14 +3,13 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use Src\Categories\Application\GetAllCategoriesUseCase;
-use Src\Categories\Infrastructure\Eloquent\Repositories\CategoryRepository;
+use Src\Modules\Blogs\Categories\Application\UseCase\Queries\GetAllCategoriesUseCase;
 
 class Navigation extends Component
 {
     public function render()
     {
-        $categories = (new GetAllCategoriesUseCase(new CategoryRepository))->execute();
+        $categories = (new GetAllCategoriesUseCase())->__invoke();
 
         return view('livewire.navigation', compact('categories'));
     }

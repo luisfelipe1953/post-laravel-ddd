@@ -5,8 +5,9 @@ namespace App\Providers;
 // use Illuminate\Support\Facades\Gate;
 
 use App\Policies\PostPolicy;
+use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Src\Posts\Infrastructure\Eloquent\PostModel;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -17,7 +18,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
-        PostModel::class => PostPolicy::class,
+        PostEloquentModel::class => PostPolicy::class,
     ];
 
     /**

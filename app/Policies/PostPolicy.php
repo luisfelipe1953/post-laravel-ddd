@@ -5,7 +5,8 @@ namespace App\Policies;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
 use Illuminate\Auth\Access\HandlesAuthorization;
-use Src\Posts\Infrastructure\Eloquent\PostModel;
+use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
+
 
 class PostPolicy
 {
@@ -19,7 +20,7 @@ class PostPolicy
      * @param PostModel $post
      * @return Response
      */
-    public function author(User $user, PostModel $post): Response
+    public function author(User $user, PostEloquentModel $post): Response
     {
         return $post->user_id == $user->id ?
             Response::allow() :
@@ -34,7 +35,7 @@ class PostPolicy
      * @param PostModel $post
      * @return Response
      */
-    public function published(?User $user, PostModel $post): Response
+    public function published(?User $user, PostEloquentModel $post): Response
     {
         return $post->status === '2' ?
             Response::allow() :

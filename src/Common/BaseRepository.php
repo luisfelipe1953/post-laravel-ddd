@@ -5,10 +5,12 @@ namespace Src\Common;
 use Src\Common\Traits\{
     Hasher,
     Logger,
-    Converter
+    Converter,
+    ConsumeExternalService,
+    ApiResponser
 };
 
 abstract class BaseRepository
 {
-    use Hasher, Converter, Logger;
+    use Hasher, Converter, Logger, ConsumeExternalService, ApiResponser;
 }

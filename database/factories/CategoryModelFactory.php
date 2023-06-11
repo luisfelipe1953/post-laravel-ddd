@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Src\Categories\Infrastructure\Eloquent\CategoryModel;
+use Src\Modules\Blogs\Categories\Infrastructure\Percistence\Eloquent\CategoryEloquentModel;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Category>
@@ -17,7 +17,7 @@ class CategoryModelFactory extends Factory
      *
      * @var string
      */
-    protected $model = CategoryModel::class;
+    protected $model = CategoryEloquentModel::class;
 
     /**
      * Define the model's default state.

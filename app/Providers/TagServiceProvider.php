@@ -13,37 +13,37 @@ use Src\Tags\Infrastructure\Eloquent\Repositories\TagRepository;
 
 class TagServiceProvider extends ServiceProvider
 {
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        $this->app->when(GetPostsRelatedToTagsUseCase::class)
-            ->needs(TagRepositoryContract::class)
-            ->give(TagRepository::class);
-        $this->app->when(GetAllTagsUseCase::class)
-            ->needs(TagRepositoryContract::class)
-            ->give(TagRepository::class);
-        $this->app->when(SaveTagUseCase::class)
-            ->needs(TagRepositoryContract::class)
-            ->give(TagRepository::class);
-        $this->app->when(GetTagUseCase::class)
-            ->needs(TagRepositoryContract::class)
-            ->give(TagRepository::class);
-        $this->app->when(DeleteTagUseCase::class)
-            ->needs(TagRepositoryContract::class)
-            ->give(TagRepository::class);
-    }
+//     /**
+//      * Register services.
+//      *
+//      * @return void
+//      */
+//     public function register()
+//     {
+//         $this->app->when(GetPostsRelatedToTagsUseCase::class)
+//             ->needs(TagRepositoryContract::class)
+//             ->give(TagRepository::class);
+//         $this->app->when(GetAllTagsUseCase::class)
+//             ->needs(TagRepositoryContract::class)
+//             ->give(TagRepository::class);
+//         $this->app->when(SaveTagUseCase::class)
+//             ->needs(TagRepositoryContract::class)
+//             ->give(TagRepository::class);
+//         $this->app->when(GetTagUseCase::class)
+//             ->needs(TagRepositoryContract::class)
+//             ->give(TagRepository::class);
+//         $this->app->when(DeleteTagUseCase::class)
+//             ->needs(TagRepositoryContract::class)
+//             ->give(TagRepository::class);
+//     }
 
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
-    }
+//     /**
+//      * Bootstrap services.
+//      *
+//      * @return void
+//      */
+//     public function boot()
+//     {
+//         //
+//     }
 }

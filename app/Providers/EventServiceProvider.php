@@ -3,11 +3,12 @@
 namespace App\Providers;
 
 use App\Observers\PostObserver;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
+use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Event;
-use Src\Posts\Infrastructure\Eloquent\PostModel;
+
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -29,7 +30,7 @@ class EventServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        PostModel::observe(PostObserver::class);
+        PostEloquentModel::observe(PostObserver::class);
     }
 
     /**

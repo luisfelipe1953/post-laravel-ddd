@@ -6,7 +6,6 @@ use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Src\Posts\Infrastructure\Eloquent\PostModel;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Src\Images\Infrastructure\Eloquent\ImageModel;
 use Src\Videos\Infrastructure\Eloquent\VideoModel;
@@ -16,6 +15,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Src\Comments\Infrastructure\Eloquent\CommentModel;
 use Src\Profiles\Infrastructure\Eloquent\ProfileModel;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Src\Modules\Blogs\Posts\Infrastructure\Persistence\Eloquent\PostEloquentModel;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -69,7 +69,7 @@ class User extends Authenticatable implements MustVerifyEmail
      */
     public function posts(): HasMany
     {
-        return $this->hasMany(PostModel::class);
+        return $this->hasMany(PostEloquentModel::class);
     }
 
     /**
